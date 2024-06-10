@@ -1,4 +1,12 @@
-        // 烟花特效
+		var clickAbility = true;
+		//隐藏框
+		function clearMsg(){
+			const msg = document.getElementById('settings');
+			msg.style.display = "none";
+			clickAbility = false;
+		}
+
+		// 烟花特效
         (function () {
             var canvas = document.getElementById('fireworks'),
                 ctx = canvas.getContext('2d'),
@@ -118,6 +126,7 @@
                 ctx.strokeStyle = 'hsla(' + this.hue + ', 100%, ' + this.brightness + '%, ' + this.alpha + ')';
                 ctx.stroke();
             }
+			
             function loop() {
                 settings = document.getElementById('settings');
                 particle = document.getElementById('particle');
@@ -129,19 +138,19 @@
                     particle.value = 128;
                 }
                 if(P >= 512 && P < 2048){
-                    document.getElementById('message').value = "大哥大会有卡顿";
+                    document.getElementById('message').value = "入门级";
                 }
                 if(P >= 2048 && P < 4096){
-                    document.getElementById('message').value = "不会有卡顿";
+                    document.getElementById('message').value = "低端鸡";
                 }
                 if(P >= 4096 && P < 8192){
-                    document.getElementById('message').value = "基本不会有卡顿";
+                    document.getElementById('message').value = "中高端鸡";
                 }
                 if(P >= 8192 && P < 16384){
-                    document.getElementById('message').value = "可能会有卡顿";
+                    document.getElementById('message').value = "高端鸡";
                 }
                 if(P >= 16384 && P < 32768){
-                    document.getElementById('message').value = "基本会有卡顿";
+                    document.getElementById('message').value = "火鸡";
                 }
                 if(P >= 32768 && P < 65536){
                     document.getElementById('message').value = "你看到的是烟花还是核弹";
@@ -166,18 +175,20 @@
                 }
                 if (timerTick >= timerTotal) {
                     if (!mousedown) {
-                        fireworks.push(new Firework(canvas.width / 2, canvas.height, random(0, canvas.width), random(0, canvas.height / 2)));
+                        fireworks.push(new Firework(canvas.width / 2, canvas.height, random(0, canvas.width), random(0, canvas.height / 1.5)));
                         timerTick = 0;
-                        settings.style.display = 'block'
+                        //settings.style.display = 'block';
                     }
                 } else {
-                    timerTick++;
+                    timerTick+=20;
                 }
                 if (limiterTick >= limiterTotal) {
                     if (mousedown) {
-                        fireworks.push(new Firework(canvas.width / 2, canvas.height, mx, my));
+						if(clickAbility){
+							fireworks.push(new Firework(canvas.width / 1.5, canvas.height, mx, my));
+						}
                         limiterTick = 0;
-                        settings.style.display = 'none'
+                        //settings.style.display = 'none';
                     }
                 } else {
                     limiterTick++;
