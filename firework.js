@@ -141,27 +141,27 @@
                 S = size.value;
                 if(P >= 99999){
                     alert("条数已达上限(99999条),太多了会爆炸的哦,ttx帮你强制退回默认值");
-                    particle.value = 128;
-                }
-                if(P >= 512 && P < 2048){
+                    particle.value = 256;
+                }else
+                if(P >= 128 && P < 256){
                     document.getElementById('message').value = "入门级";
-                }
-                if(P >= 2048 && P < 4096){
+                }else
+                if(P >= 256 && P < 512){
                     document.getElementById('message').value = "低端鸡";
-                }
-                if(P >= 4096 && P < 8192){
+                }else
+                if(P >= 512 && P < 1024){
                     document.getElementById('message').value = "中高端鸡";
-                }
-                if(P >= 8192 && P < 16384){
+                }else
+                if(P >= 1024 && P < 2048){
                     document.getElementById('message').value = "高端鸡";
-                }
-                if(P >= 16384 && P < 32768){
+                }else
+                if(P >= 2048 && P < 4096){
                     document.getElementById('message').value = "火鸡";
-                }
-                if(P >= 32768 && P < 65536){
+                }else
+                if(P >= 4096 && P < 8192){
                     document.getElementById('message').value = "你看到的是烟花还是核弹";
-                }
-                if(P >= 65536 && P < 99999){
+                }else
+                if(P >= 8192 && P < 99999){
                     document.getElementById('message').value = "你看到的是宇宙大爆炸";
                 }
                 hue = random(1,2048);
