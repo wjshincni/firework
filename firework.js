@@ -1,13 +1,19 @@
 		var clickAbility = true;
-		//隐藏框
-		function clearMsg(){
-			const msg = document.getElementById('settings');
-			msg.style.display = "none";
-			clickAbility = false;
-		}
 
 		// 烟花特效
         (function () {
+			var btn = document.getElementById('hideBtn');
+			var msg = document.getElementById('settings');
+			setInterval(function(){//隐藏框
+				if(btn.checked){
+					msg.style.display = "block";
+					clickAbility = true;
+				}
+				else{
+					msg.style.display = "none";
+					clickAbility = false;
+				}
+			},1000)
             var canvas = document.getElementById('fireworks'),
                 ctx = canvas.getContext('2d'),
                 settings,
@@ -177,8 +183,10 @@
                     if (!mousedown) {
                         fireworks.push(new Firework(canvas.width / 2, canvas.height, random(0, canvas.width), random(0, canvas.height / 1.5)));
                         timerTick = 0;
-                        //settings.style.display = 'block';
-                    }
+						if(clickAbility){
+							settings.style.display = 'block';
+						}
+					}
                 } else {
                     timerTick+=20;
                 }
@@ -186,9 +194,10 @@
                     if (mousedown) {
 						if(clickAbility){
 							fireworks.push(new Firework(canvas.width / 1.5, canvas.height, mx, my));
+							settings.style.display = 'none';
 						}
                         limiterTick = 0;
-                        //settings.style.display = 'none';
+                        
                     }
                 } else {
                     limiterTick++;

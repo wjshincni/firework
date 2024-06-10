@@ -37,6 +37,8 @@ input{
 #hideBtn{
 	z-index: 999;
 	position: fixed;
+	height: 50px;
+	width: 50px;
 	right: 0;
 	top: 0;
 	opacity: 0;
