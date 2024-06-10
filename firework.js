@@ -181,7 +181,7 @@
                 }
                 if (timerTick >= timerTotal) {
                     if (!mousedown) {
-                        fireworks.push(new Firework(canvas.width / 2, canvas.height, random(0, canvas.width), random(0, canvas.height / 1.5)));
+                        fireworks.push(new Firework(canvas.width / 2, canvas.height, random(0, canvas.width), random(0, canvas.height / 2)));
                         timerTick = 0;
 						if(clickAbility){
 							settings.style.display = 'block';
@@ -193,7 +193,7 @@
                 if (limiterTick >= limiterTotal) {
                     if (mousedown) {
 						if(clickAbility){
-							fireworks.push(new Firework(canvas.width / 1.5, canvas.height, mx, my));
+							fireworks.push(new Firework(canvas.width / 2, canvas.height, mx, my));
 							settings.style.display = 'none';
 						}
                         limiterTick = 0;
